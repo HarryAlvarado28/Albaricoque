@@ -14,9 +14,12 @@ export class CompassComponent {
   degrees: number[] = [];
 
   constructor() {
-    // Mostrar etiquetas cada 30 grados
     for (let i = 0; i < 360; i += 30) {
       this.degrees.push(i);
     }
+  }
+
+  rotate(step: number) {
+    this.angle = (this.angle + step + 360) % 360;
   }
 }

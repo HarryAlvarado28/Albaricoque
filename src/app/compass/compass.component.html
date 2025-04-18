@@ -1,15 +1,18 @@
 <div class="compass-container">
+  <h1>Compass</h1>
   <div class="compass">
-    <div class="needle" [style.transform]="'rotate(' + angle + 'deg)'"></div>
     <div
-      *ngFor="let d of degrees"
-      class="degree-label"
-      [style.transform]="'rotate(' + d + 'deg)'"
-    >
+      class="needle"
+      [style.transform]="'rotate(' + angle + 'deg)'"
+    ></div>
+    <div *ngFor="let d of degrees" class="degree-label" [style.transform]="'rotate(' + d + 'deg)'">
       <span [style.transform]="'rotate(-' + d + 'deg)'">{{ d }}°</span>
     </div>
   </div>
 
-  <input type="range" min="0" max="360" [(ngModel)]="angle" />
-  <p>Ángulo actual: {{ angle }}°</p>
+  <div class="controls">
+    <button (click)="rotate(-15)">←</button>
+    <p>{{ angle }}°</p>
+    <button (click)="rotate(15)">→</button>
+  </div>
 </div>
